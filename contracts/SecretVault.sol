@@ -9,7 +9,7 @@ import "./WrappedEtherLike.sol";
 //
 contract SecretVault {
     address public owner;
-    address wrappedEtherAddr = 0xd9145CCE52D386f254917e481eB44e9943F39138;
+    address wrappedEtherAddr = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2; // Mainnet
     WrappedEtherLike WETHLike = WrappedEtherLike(wrappedEtherAddr);
     
     modifier onlyOwner {
