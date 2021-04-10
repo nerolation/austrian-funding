@@ -49,6 +49,8 @@ This Vault allows stores a hash value ***H* where *H = keccak256(vault, recipien
 * *rescuerTwo* - Second rescuer
 * *passphrase* - Hashed (keccak-256) 32 byte passphrase in hexadecimal, later required for transfers from the SecretVault
 
+Fund the wallet through an internal transaction to avoid public transactions shown on blockexplorers like [etherscan.io](https://etherscan.io)
+
 <br/>
 
 **Roadmap**:
