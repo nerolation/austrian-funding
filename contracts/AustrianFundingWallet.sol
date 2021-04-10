@@ -38,7 +38,7 @@ contract AustrianFundingWallet is HiddingSomething, aSimpleDoubleSigWallet {
     //
     
     // Spend ETH from SecretVault
-    function sendInternal(address _to, uint256 _value, string memory passphrase) 
+    function sendInternal(address to, uint256 value, string memory passphrase) 
         public 
         payable 
         onlyOwner
@@ -46,12 +46,12 @@ contract AustrianFundingWallet is HiddingSomething, aSimpleDoubleSigWallet {
         resetPassphraseAndApproval
     {
 
-        bool success = spend(_to,_value);
+        bool success = spend(to,value);
         require(success);
     }
 
     // Spend ETH in UXTO style from SecretVault
-    function sendUTXO(address _to, uint256 _value, string memory passphrase) 
+    function sendUTXO(address to, uint256 value, string memory passphrase) 
         public 
         payable 
         onlyOwner
@@ -59,13 +59,13 @@ contract AustrianFundingWallet is HiddingSomething, aSimpleDoubleSigWallet {
         resetPassphraseAndApproval
     {
 
-        bool success = spendUTXO(_to,_value);
+        bool success = spendUTXO(to,value);
         require(success);
     }
     
     // Spend ETH from by deploying a contract that stores the funds and
     // let only address(_to) claim them
-    function sendAndLetOtherPartyClaim(address _to, string memory passphrase) 
+    function sendAndLetOtherPartyClaim(address to, string memory passphrase) 
         public 
         payable 
         onlyOwner
@@ -73,7 +73,7 @@ contract AustrianFundingWallet is HiddingSomething, aSimpleDoubleSigWallet {
         resetPassphraseAndApproval
     {
 
-        bool success = spendToClaim(_to,msg.value);
+        bool success = spendToClaim(to,msg.value);
         require(success);
         
     }
